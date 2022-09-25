@@ -1,7 +1,11 @@
 package com.bridgelabz;
 
-public class CabInvoiceGenerator {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class CabInvoiceGenerator {
+	static List<Customer> customerList = new ArrayList<>();
 	public static double calculateFare(double distance, double time) {
 		double totalFare = distance*Ride.Category.NORMAL_RIDE.costPerKm + time *Ride.Category.NORMAL_RIDE.costPerMinute;
 		return totalFare<Ride.Category.NORMAL_RIDE.minimumFarePerRide?Ride.Category.NORMAL_RIDE.minimumFarePerRide:totalFare;
@@ -22,4 +26,11 @@ public class CabInvoiceGenerator {
 		return new Invoice(totalNumberOfRides,totalFare,averageFare);
 	}
 
+	public static Invoice generateInvoice(int id) {
+		List<Customer> customerList1 = customerList.stream().filter(customer -> customer.id == id).collect(Collectors.toList());
+		Customer customer = customerList1.get(0);
+		return generateInvoice(customer.rideList);
+
+
+	}
 }
