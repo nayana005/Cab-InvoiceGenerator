@@ -34,6 +34,18 @@ public class CabInvoiceGeneratorTest {
 	        double totalFare = CabInvoiceGenerator.calculateFare(rides);
 	        Assert.assertEquals(150.0, totalFare);
 	    }
+	  
+	  @Test
+	  public void givenMultipleRidesShouldReturnInvoice(){
+	        Ride ride1 = new Ride(4,10);
+	        Ride ride2 = new Ride(5,10);
+	        Ride ride3 = new Ride(3,10);
+	        Ride[] rides = new Ride[]{ride1,ride2,ride3};
+	       Invoice actualInvoice = CabInvoiceGenerator.generateInvoice(rides);
+	       Invoice expectedInvoice = new Invoice(3,150.0,50.0);
+	       Assert.assertEquals(expectedInvoice,actualInvoice);
+	    }
+
 
 
 }
