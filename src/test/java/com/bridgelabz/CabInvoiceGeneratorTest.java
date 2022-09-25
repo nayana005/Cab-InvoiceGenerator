@@ -26,7 +26,7 @@ public class CabInvoiceGeneratorTest {
 	    }
 	 
 	  @Test
-	  public void givenMultipleRidesShouldReturnTotalFare(){
+	  public void givenMultiRidesShouldReturnTotalFare(){
 	        Ride ride1 = new Ride(4,10);
 	        Ride ride2 = new Ride(5,10);
 	        Ride ride3 = new Ride(3,10);
