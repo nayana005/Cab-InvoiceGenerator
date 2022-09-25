@@ -1,7 +1,5 @@
 package com.bridgelabz;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,5 +18,11 @@ public class CabInvoiceGeneratorTest {
 		double totalFare = CabInvoiceGenerator.calculateFare(4.4,4);
 		Assert.assertEquals(48, totalFare);
 	}
+
+	 @Test
+	    void givenDistanceAndTimeShouldReturnMinimumFare(){
+	        double totalFare = CabInvoiceGenerator.calculateFare(0.3,1);
+	        Assert.assertEquals(5, totalFare);
+	    }
 
 }
